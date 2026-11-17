@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 export const metadata: Metadata = {
   title: "Global Keyword Intelligence",
   description: "Free-first, worldwide, multilingual keyword research. Real suggestions only — volume, CPC and KD are never invented.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

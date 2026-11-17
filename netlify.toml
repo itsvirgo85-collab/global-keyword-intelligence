@@ -1,0 +1,21 @@
+# Netlify deploy settings for Global Keyword Intelligence (Next.js 15)
+# Import the GitHub repo itsvirgo85-collab/global-keyword-intelligence in
+# Netlify and these settings are picked up automatically. No env vars are
+# required for the free-first MVP (Autocomplete + Datamuse need no key).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Cache Next.js build output between deploys
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"

@@ -8,7 +8,13 @@ import type { KeywordResult } from "@/lib/types";
 // Server-side Google Autocomplete fan-out + Datamuse fallback.
 // Returns REAL suggestions only. Volume/CPC/KD are always null here —
 // they come only from a connected provider or a CSV import.
-const UA = "Mozilla/5.0 (compatible; GlobalKeywordIntelligence/0.1; +https://example.com)";
+// Netlify: must run as a serverless function on every request, never
+// prerendered at build time (there is no seed keyword at build time).
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+export const maxDuration = 30;
+
+const UA = "Mozilla/5.0 (compatible; GlobalKeywordIntelligence/0.1; +https://github.com/itsvirgo85-collab/global-keyword-intelligence)";
 
 async function fetchAutocomplete(q: string, hl: string): Promise<string[]> {
   try {

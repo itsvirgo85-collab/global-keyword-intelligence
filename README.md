@@ -41,6 +41,11 @@ npm run build                # production build
 
 ## Deploy (free tiers)
 
+- **Netlify (primary):** import this repo in Netlify — `netlify.toml`
+  already sets build `npm run build`, publish `.next`, Node 20 and the
+  `@netlify/plugin-nextjs` plugin, so the `/api/suggestions` route runs as
+  a Netlify function. No env vars are required for the free-first MVP.
+  Live site: see the Netlify dashboard for the assigned `*.netlify.app` URL.
 - **Vercel:** import this repo, set the env vars from `.env.example`, deploy.
   No build settings needed — Next.js is detected automatically.
 - **Supabase:** create a free project, run
